@@ -5,12 +5,12 @@
 if (file_exists('db.php')) {
     require 'db.php';
 } else {
-    $host = getenv('DB_HOST') ?: "localhost";
-    $user = getenv('DB_USER') ?: "root";
-    $password = getenv('DB_PASSWORD') ?: "";
-    $database = getenv('DB_NAME') ?: "voyentra";
-    $port = getenv('DB_PORT') ?: 3306;
-    $ssl_ca = getenv('DB_SSL_CA');
+    $host     = getenv('MYSQLHOST') ?: getenv('DB_HOST') ?: "localhost";
+    $user     = getenv('MYSQLUSER') ?: getenv('DB_USER') ?: "root";
+    $password = getenv('MYSQLPASSWORD') ?: getenv('DB_PASSWORD') ?: "";
+    $database = getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: "voyentra";
+    $port     = getenv('MYSQLPORT') ?: getenv('DB_PORT') ?: 3306;
+    $ssl_ca   = getenv('DB_SSL_CA');
 
     $conn = mysqli_init();
     if ($ssl_ca) {

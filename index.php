@@ -8,8 +8,8 @@
 if (file_exists('config.php')) {
     require_once 'config.php';
 } else {
-    define('RAZORPAY_KEY_ID', getenv('RAZORPAY_KEY_ID') ?: 'rzp_test_SofkoLIvdfqfK4');
-    define('RAZORPAY_KEY_SECRET', getenv('RAZORPAY_KEY_SECRET') ?: 'qfl3Vkm5BML6MelmqDNK9TLA');
+    define('RAZORPAY_KEY_ID', getenv('RAZORPAY_KEY') ?: getenv('RAZORPAY_KEY_ID') ?: 'rzp_test_SofkoLIvdfqfK4');
+    define('RAZORPAY_KEY_SECRET', getenv('RAZORPAY_SECRET') ?: getenv('RAZORPAY_KEY_SECRET') ?: 'qfl3Vkm5BML6MelmqDNK9TLA');
 }
 ?>
 <link rel="stylesheet" href="style.css">
