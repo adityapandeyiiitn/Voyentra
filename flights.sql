@@ -39,7 +39,8 @@ CREATE TABLE `flights` (
   `Seats_available` int(11) NOT NULL,
   `Class` varchar(20) NOT NULL,
   `Terminal` varchar(5) NOT NULL,
-  `Gate` varchar(5) NOT NULL
+  `Gate` varchar(5) NOT NULL,
+  PRIMARY KEY (`Flight_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

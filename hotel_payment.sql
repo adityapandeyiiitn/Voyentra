@@ -28,12 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `hotel_payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Hotel_ID` varchar(5) NOT NULL,
   `Costumer_name` varchar(50) NOT NULL,
   `Amount_paid` int(11) NOT NULL,
   `Payment_date` date NOT NULL,
   `Payment_time` time NOT NULL,
-  `Bank_name` varchar(50) NOT NULL
+  `Bank_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
