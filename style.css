@@ -1,0 +1,638 @@
+/* style.css — Voyentra */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    color: #222;
+    background: linear-gradient(135deg, #40a7ec 0%, #0a1e61 100%);
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- NAV --- */
+nav {
+    background: #1a3c5e;
+    color: #18dc49;
+    padding: 16px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #f0c040;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    color: #fff;
+    margin-left: 24px;
+    font-size: 14px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #f0c040;
+}
+
+/* --- HERO --- */
+.hero {
+    background: url(bckimg.jpg) center/cover no-repeat;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #18491d;
+}
+
+/* --- SEARCH BOX --- */
+.search-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 900px;
+    margin: -50px auto 0;
+    color: #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.tab-btn {
+    padding: 10px 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    color: #113e12;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.tab-btn.active {
+    color: #1a3c5e;
+    position: relative;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #1a3c5e;
+}
+
+.search-fields {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 140px;
+}
+
+.field label {
+    font-size: 11px;
+    color: #0e3a14;
+    margin-bottom: 6px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.field input,
+.field select {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-btn {
+    padding: 13px 30px;
+    background: #e07b00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn:hover {
+    background: #c96d00;
+    transform: translateY(-1px);
+}
+
+/* --- DESTINATIONS --- */
+#destinations {
+    padding: 80px 5% 40px;
+}
+
+/* --- OFFERS --- */
+#offers {
+    padding: 60px 5%;
+    background: #f8fafc;
+}
+
+.offers-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.offer-card {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.offer-card:hover {
+    transform: scale(1.03);
+}
+
+.offer-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #f0c040;
+}
+
+.offer-card p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.offer-badge {
+    background: #e07b00;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.dest-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dest-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dest-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dest-info {
+    padding: 20px;
+}
+
+.dest-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.dest-price {
+    color: #e07b00;
+    font-size: 15px;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* --- RESULTS --- */
+#flight-results-section,
+#hotel-results-section {
+    padding: 60px 5%;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 20px 5%;
+}
+
+.flight-card,
+.hotel-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* --- POPUP --- */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-overlay.show {
+    display: flex;
+}
+
+.popup-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #1a3c5e;
+    color: #94a3b8;
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 14px;
+}
+
+/* --- ALERT MSG --- */
+.alert-msg {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* ========== PAYMENT PAGE STYLES ========== */
+#payment-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #40a7ec 0%, #0a1e61 100%);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+
+#payment-page.show {
+    display: flex;
+}
+
+.payment-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 44px 40px 36px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+.payment-card .pay-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #f0c040;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.payment-card h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.payment-card .pay-subtitle {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 28px;
+}
+
+.pay-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.pay-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.pay-field label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #1a3c5e;
+    margin-bottom: 7px;
+    letter-spacing: 0.5px;
+}
+
+.pay-field input {
+    padding: 13px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.pay-field input:focus {
+    border-color: #1a3c5e;
+}
+
+.pay-field select {
+    padding: 13px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fff;
+}
+
+.pay-field select:focus {
+    border-color: #1a3c5e;
+}
+
+/* Amount display div */
+.pay-amount-display {
+    padding: 13px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a3c5e;
+    background: #f8fafc;
+}
+
+.pay-error {
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: none;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.pay-error.show {
+    display: block;
+}
+
+.pay-confirm-btn {
+    width: 100%;
+    padding: 14px;
+    background: #1a3c5e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 6px;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+
+.pay-confirm-btn:hover {
+    background: #0f2642;
+    transform: translateY(-1px);
+}
+
+.pay-back-btn {
+    width: 100%;
+    padding: 11px;
+    background: transparent;
+    color: #64748b;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    transition: 0.2s;
+}
+
+.pay-back-btn:hover {
+    border-color: #94a3b8;
+    color: #334155;
+}
+
+/* GPay-style success overlay */
+.gpay-success-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 24px;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+}
+
+.gpay-success-overlay.show {
+    display: flex;
+}
+
+.gpay-tick-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.gpay-tick-circle svg {
+    width: 42px;
+    height: 42px;
+    stroke: #fff;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.gpay-success-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.gpay-success-sub {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 28px;
+}
+
+.gpay-done-btn {
+    padding: 12px 36px;
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    transition: 0.3s;
+}
+
+.gpay-done-btn:hover {
+    background: #15803d;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #1a3c5e;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .search-box {
+        margin-top: -30px;
+        padding: 20px;
+    }
+
+    .search-fields {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .field {
+        width: 100%;
+    }
+
+    .dest-card {
+        max-width: 100%;
+    }
+}
+
+/* ========== END RESPONSIVE STYLES ========== */
+
+/* ========== END PAYMENT PAGE STYLES ========== */
