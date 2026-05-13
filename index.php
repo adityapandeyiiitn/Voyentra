@@ -4,7 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Voyentra - Travel Your Way</title>
-<?php require_once 'config.php'; ?>
+<?php 
+if (file_exists('config.php')) {
+    require_once 'config.php';
+} else {
+    define('RAZORPAY_KEY_ID', getenv('RAZORPAY_KEY_ID') ?: 'rzp_test_SofkoLIvdfqfK4');
+    define('RAZORPAY_KEY_SECRET', getenv('RAZORPAY_KEY_SECRET') ?: 'qfl3Vkm5BML6MelmqDNK9TLA');
+}
+?>
 <link rel="stylesheet" href="style.css">
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>

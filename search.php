@@ -2,7 +2,24 @@
 // search.php
 // Called by script.js via fetch(). Returns HTML cards for flights or hotels.
 
-require 'db.php';
+if (file_exists('db.php')) {
+    require 'db.php';
+} else {
+    $host = getenv('DB_HOST') ?: "localhost";
+    $user = getenv('DB_USER') ?: "root";
+    $password = getenv('DB_PASSWORD') ?: "";
+    $database = getenv('DB_NAME') ?: "voyentra";
+    $port = getenv('DB_PORT') ?: 3306;
+    $ssl_ca = getenv('DB_SSL_CA');
+
+    $conn = mysqli_init();
+    if ($ssl_ca) {
+        $conn->ssl_set(NULL, NULL, $ssl_ca, NULL, NULL);
+    }
+    if (!$conn->real_connect($host, $user, $password, $database, $port, NULL, $ssl_ca ? MYSQLI_CLIENT_SSL : 0)) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+}
 
 $type = $_GET['type'] ?? '';
 

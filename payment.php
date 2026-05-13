@@ -5,8 +5,31 @@
 
 header('Content-Type: application/json');
 
-require 'db.php';
-require 'config.php';
+if (file_exists('db.php')) {
+    require 'db.php';
+} else {
+    $host = getenv('DB_HOST') ?: "localhost";
+    $user = getenv('DB_USER') ?: "root";
+    $password = getenv('DB_PASSWORD') ?: "";
+    $database = getenv('DB_NAME') ?: "voyentra";
+    $port = getenv('DB_PORT') ?: 3306;
+    $ssl_ca = getenv('DB_SSL_CA');
+
+    $conn = mysqli_init();
+    if ($ssl_ca) {
+        $conn->ssl_set(NULL, NULL, $ssl_ca, NULL, NULL);
+    }
+    if (!$conn->real_connect($host, $user, $password, $database, $port, NULL, $ssl_ca ? MYSQLI_CLIENT_SSL : 0)) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+}
+
+if (file_exists('config.php')) {
+    require 'config.php';
+} else {
+    if (!defined('RAZORPAY_KEY_ID')) define('RAZORPAY_KEY_ID', getenv('RAZORPAY_KEY_ID') ?: 'rzp_test_SofkoLIvdfqfK4');
+    if (!defined('RAZORPAY_KEY_SECRET')) define('RAZORPAY_KEY_SECRET', getenv('RAZORPAY_KEY_SECRET') ?: 'qfl3Vkm5BML6MelmqDNK9TLA');
+}
 
 $type   = trim($_POST['type']          ?? '');
 $id     = trim($_POST['id']            ?? '');
