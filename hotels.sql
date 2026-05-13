@@ -37,7 +37,8 @@ CREATE TABLE `hotels` (
   `Room_type` varchar(30) NOT NULL,
   `Amenities` text NOT NULL,
   `Checkin_time` time NOT NULL,
-  `Checkout_time` time NOT NULL
+  `Checkout_time` time NOT NULL,
+  PRIMARY KEY (`Hotel_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
